@@ -19,6 +19,10 @@ preparing_data.ipynb
 
 ### PyCharm files ###
 venv/
+.idea/
+
+### choredriver ###
+choredriver
 
 
 ### Python ###
