@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
 import shutil
+import time
+
 
 
 def create_empty_dir(dir_path):
@@ -13,6 +15,7 @@ def create_empty_dir(dir_path):
         shutil.rmtree(dir_path)
     except:
         os.makedirs(dir_path, exist_ok=True)
+
 
 def create_driver(city):
     """creates webdriver with disabled pic download and default dir to download files"""
@@ -65,11 +68,13 @@ def download_files(data, city):
         search.send_keys(Keys.RETURN)
         driver.find_element_by_link_text('Найти').click()
         try:
-            WebDriverWait(driver, 20).until(EC.url_contains("cat"))
+            WebDriverWait(driver, 30).until(EC.url_contains("cat"))
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             driver.find_element_by_class_name("_93444fe79c--main--1-d6V").click()
         except:
             print(i, f"{row.raion_name}, {row.okrug}, Москва")
+
+    time.sleep(10)
 
 
 __all__ = ["download_files", "choose_appartment_layout", "create_empty_dir", "create_driver"]
