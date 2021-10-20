@@ -11,9 +11,8 @@ def create_empty_dir(dir_path):
     """creates empty dir to download offers in"""
     try:
         shutil.rmtree(dir_path)
-    finally:
+    except:
         os.makedirs(dir_path, exist_ok=True)
-
 
 def create_driver(city):
     """creates webdriver with disabled pic download and default dir to download files"""
