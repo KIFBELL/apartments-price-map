@@ -40,7 +40,7 @@ def get_merged_data(city) -> pd.DataFrame:
 def print_heat_map(data):
     fig, ax = plt.subplots(1, figsize=(40, 20))
     ax.axis('off')
-    ax.set_title(F'Heat Map of average square meter price of appartment in {city.capitalize()} districts in rubles',
+    ax.set_title(F'Average apartment square meter price in {city.capitalize()} districts, rubles',
                  fontdict={'fontsize': '40', 'fontweight': '3'})
 
     # price borders
@@ -58,7 +58,7 @@ def print_heat_map(data):
     lower_bound, upper_bound = 5 / 8 * vmin + 3 / 8 * vmax, 5 / 8 * vmax + 3 / 8 * vmin
     # lower_bound, upper_bound = vmean, 3/4 * vmax + 1/4 * vmin
     for idx, row in data.iterrows():
-        if lower_bound < row['average_price'] and row['average_price'] < upper_bound:
+        if lower_bound < row['average_price'] < upper_bound:
             plt.annotate(text=idx, xy=np.concatenate(row["center"].coords.xy),
                          horizontalalignment='left', fontsize='large', color='black', wrap=True)
 
