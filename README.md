@@ -1,5 +1,5 @@
 # pet-project
-This is a pet project which is designed to get an opportunity to work with pandas and geopandas libs.
+This is a pet project which is designed to get an opportunity to work with pandas, geopandas, and selenium libs.
 
 The code serves you with the average price of a squared meter of apartments in 3 Russian cities, namely Moscow, SPB, and Ekaterinburg.
 The final result would be a heat map that provide a user with a price data.
